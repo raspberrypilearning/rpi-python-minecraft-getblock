@@ -1,19 +1,36 @@
-## Introduction
+- To find a block ID in Minecraft, the module needs to be imported and a connection made to the Minecraft game.
 
-Add project description here. What will learners be making?
+	```python
+	import mcpi.minecraft as minecraft
+	mc = minecraft.Minecraft.create()
+	```
 
-### What you will make
+- You can find the block at any position in the Minecraft world, by using it's `x`, `y` and `z` coordinates.
 
-Add something here to showcase here, for example:
+	```python
+	block_id = mc.getBlock(0, 0, 0)
+	```
 
-<div class="scratch-preview">
-  <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/160619869/?autostart=false" frameborder="0"></iframe>
-</div>
+- You should see a number being printed in the Python shell. You can then lookup the block ID. For instance
 
-Add instructions here. These should explain either how the finished project will work, or explain how to interact with the content above.
+	```
+	Air:   0
+	Stone: 1
+	Grass: 2
+	Dirt:  3
+	Water: 8
+	Sand: 12
+	Ice:  79
+	```
+You can find a larger list of block IDs [here](http://www.stuffaboutcode.com/p/minecraft-api-reference.html)
 
-### What you will learn
+- It is often more useful to know the block ID of a block relative to the player's position. To do this you need to first find the player's `x`, `y` and `z` coordinates. This code for instance, will find the ID of the block beneath the player.
 
-This project covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](http://rpf.io/curriculum):
+	```python
+	import mcpi.minecraft as minecraft
+	mc = minecraft.Minecraft.create()
 
-+ [Add curriculum strand/level description.](https://www.raspberrypi.org/curriculum/strand/level)
+	x, y, z = mc.player.getTilePos()
+	block = mc.getBlock(x, y-1, z)
+	print(block)
+	```
