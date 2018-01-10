@@ -34,6 +34,6 @@ You can find a larger list of block IDs [here](http://www.stuffaboutcode.com/p/m
 	mc = minecraft.Minecraft.create()
 
 	x, y, z = mc.player.getTilePos()
-	block = mc.getBlock(x, y-1, z)
-	print(block)
+	block_id = mc.getBlock(x, y-1, z)
+	print(block_id)
 	```
