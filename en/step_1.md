@@ -7,6 +7,8 @@ mc = minecraft.Minecraft.create()
 
 - You can find the ID of the block at any position in the Minecraft world using its `x`, `y`, and `z` coordinates.
 
+`x` and `z` are horizontal co-ordinates, `x` is east to west, `z` is north to south; `y` is the vertical coordinate, up and down.
+
 ```python
 block_id = mc.getBlock(0, 0, 0)
 print(block_id)
@@ -32,6 +34,6 @@ You can find a larger list of block IDs [here](http://www.stuffaboutcode.com/p/m
 	mc = minecraft.Minecraft.create()
 
 	x, y, z = mc.player.getTilePos()
-	block = mc.getBlock(x, y-1, z)
-	print(block)
+	block_id = mc.getBlock(x, y-1, z)
+	print(block_id)
 	```
